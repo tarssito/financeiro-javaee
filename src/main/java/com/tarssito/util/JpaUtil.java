@@ -1,4 +1,4 @@
-package com.tarssito.model.util;
+package com.tarssito.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -8,8 +8,8 @@ import javax.faces.bean.ViewScoped;
 import javax.persistence.EntityManager;
 
 import com.tarssito.model.Lancamento;
-import com.tarssito.model.util.JpaUtil;
-import com.tarssito.repository.Lancamentos;
+import com.tarssito.repository.LancamentoRepository;
+import com.tarssito.util.JpaUtil;
 
 @ManagedBean
 @ViewScoped
@@ -20,7 +20,7 @@ public class ConsultaLancamentosBean implements Serializable {
 
 	public void consultar() {
 		EntityManager manager = JpaUtil.getEntityManager();
-		Lancamentos lancamentos = new Lancamentos(manager);
+		LancamentoRepository lancamentos = new LancamentoRepository(manager);
 		this.lancamentos = lancamentos.findAll();
 		manager.close();
 

@@ -1,4 +1,4 @@
-package com.tarssito.model.util;
+package com.tarssito.util;
 
 import java.math.BigDecimal;
 import java.util.Calendar;

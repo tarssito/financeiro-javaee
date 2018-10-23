@@ -8,12 +8,12 @@ import javax.persistence.TypedQuery;
 
 import com.tarssito.model.Lancamento;
 
-public class Lancamentos implements Serializable {
+public class LancamentoRepository implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private EntityManager manager;
 
-	public Lancamentos(EntityManager manager) {
+	public LancamentoRepository(EntityManager manager) {
 		this.manager = manager;
 	}
 
@@ -22,4 +22,7 @@ public class Lancamentos implements Serializable {
 		return query.getResultList();
 	}
 
+	public void insert(Lancamento lancamento) {
+		this.manager.persist(lancamento);
+	}
 }
