@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -24,6 +27,8 @@ public class Pessoa implements Serializable {
 		this.id = id;
 	}
 
+	@NotEmpty 
+	@Size(max = 60) 
 	@Column(length = 60, nullable = false) 
 	public String getNome() {
 		return nome;
