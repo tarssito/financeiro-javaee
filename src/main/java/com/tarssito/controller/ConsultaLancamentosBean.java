@@ -2,28 +2,25 @@ package com.tarssito.controller;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.persistence.EntityManager;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.tarssito.model.Lancamento;
 import com.tarssito.repository.LancamentoRepository;
-import com.tarssito.util.JpaUtil;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class ConsultaLancamentosBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Inject
+	private LancamentoRepository lancamentoRepository;
+
 	private List<Lancamento> lancamentos;
 
 	public void consultar() {
-		EntityManager manager = JpaUtil.getEntityManager();
-		LancamentoRepository lancamentos = new LancamentoRepository(manager);
-		this.lancamentos = lancamentos.findAll();
-		manager.close();
-
+		this.lancamentos = lancamentoRepository.findAll();
 	}
 
 	public List<Lancamento> getLancamentos() {
